@@ -1,0 +1,4 @@
+pkg
+src
+waybar-git
+*.pkg.tar.zst

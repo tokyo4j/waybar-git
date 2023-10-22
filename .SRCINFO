@@ -1,6 +1,6 @@
 pkgbase = waybar-git
 	pkgdesc = Highly customizable Wayland bar for Sway and Wlroots based compositors (GIT)
-	pkgver = r2429.09142fa3
+	pkgver = r3603.003dd3a9
 	pkgrel = 1
 	url = https://github.com/Alexays/Waybar/
 	arch = x86_64
@@ -42,6 +42,8 @@ pkgbase = waybar-git
 	backup = etc/xdg/waybar/config
 	backup = etc/xdg/waybar/style.css
 	source = waybar-git::git+https://github.com/Alexays/Waybar
+	source = wlr-taskbar-fix.patch
 	sha1sums = SKIP
+	sha1sums = 1f5704bcf46094e90802f8314b2dfdaa3af53058
 
 pkgname = waybar-git

@@ -1,7 +1,7 @@
 # Maintainer: Alexis Rouillard <contact@arouillard.fr>
 
 pkgname=waybar-git
-pkgver=r2429.09142fa3
+pkgver=r3603.003dd3a9
 pkgrel=1
 pkgdesc='Highly customizable Wayland bar for Sway and Wlroots based compositors (GIT)'
 arch=('x86_64')
@@ -51,9 +51,13 @@ optdepends=(
     'otf-font-awesome: Icons in the default configuration'
 )
 
-source=("${pkgname}::git+https://github.com/Alexays/Waybar")
+source=(
+    "${pkgname}::git+https://github.com/Alexays/Waybar"
+    "wlr-taskbar-fix.patch"
+)
 
-sha1sums=('SKIP')
+sha1sums=('SKIP'
+          '1f5704bcf46094e90802f8314b2dfdaa3af53058')
 
 pkgver() {
     cd "${srcdir}/${pkgname}"
@@ -62,6 +66,7 @@ pkgver() {
 
 prepare() {
     cd "${srcdir}/${pkgname}"
+    patch -Np1 -i ../wlr-taskbar-fix.patch
 }
 
 build() {
