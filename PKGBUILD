@@ -7,7 +7,7 @@
 
 _pkgname="waybar"
 pkgname="$_pkgname-git"
-pkgver=0.12.0.r218.g4730fc4
+pkgver=0.13.0.r2.gc336bc5
 pkgrel=1
 pkgdesc="Highly customizable Wayland bar for Sway and Wlroots based compositors"
 url='https://github.com/Alexays/Waybar'
@@ -63,13 +63,18 @@ backup=(
 )
 
 _pkgsrc="$_pkgname"
-source=("$_pkgsrc"::"git+$url.git")
-sha256sums=('SKIP')
+source=("$_pkgsrc"::"git+$url.git" 'wlr-taskbar-fix.patch')
+sha256sums=('SKIP' 'SKIP')
 
 pkgver() {
   cd "$_pkgsrc"
   git describe --long --tags --abbrev=7 --exclude='*[a-zA-Z][a-zA-Z]*' \
     | sed -E 's/^[^0-9]*//;s/([^-]*-g)/r\1/;s/-/./g'
+}
+
+prepare () {
+  cd "$_pkgsrc"
+  patch -Np1 -i ../wlr-taskbar-fix.patch
 }
 
 build() {
