@@ -1,0 +1,27 @@
+diff --git a/src/bar.cpp b/src/bar.cpp
+index d0a187c6..4b667b90 100644
+--- a/src/bar.cpp
++++ b/src/bar.cpp
+@@ -798,7 +798,7 @@ auto waybar::Bar::setupWidgets() -> void {
+   if (config["fixed-center"].isBool() ? config["fixed-center"].asBool() : true) {
+     box_.set_center_widget(center_);
+   } else {
+-    box_.pack_start(center_, true, false);
++    box_.pack_start(center_, true, true);
+   }
+   box_.pack_end(right_, false, false);
+ 
+diff --git a/src/modules/wlr/taskbar.cpp b/src/modules/wlr/taskbar.cpp
+index f4b137c0..bfe182c3 100644
+--- a/src/modules/wlr/taskbar.cpp
++++ b/src/modules/wlr/taskbar.cpp
+@@ -271,6 +271,9 @@ Task::Task(const waybar::Bar &bar, const Json::Value &config, Taskbar *tbar,
+ 
+   button.set_relief(Gtk::RELIEF_NONE);
+ 
++  text_before_.set_ellipsize(Pango::EllipsizeMode::ELLIPSIZE_END);
++  text_after_.set_ellipsize(Pango::EllipsizeMode::ELLIPSIZE_END);
++
+   content_.add(text_before_);
+   content_.add(icon_);
+   content_.add(text_after_);
