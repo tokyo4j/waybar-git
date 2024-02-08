@@ -1,7 +1,7 @@
 # Maintainer: Alexis Rouillard <contact@arouillard.fr>
 
 pkgname=waybar-git
-pkgver=r2968.9ecdbcc7
+pkgver=r3317.2326727c
 pkgrel=1
 pkgdesc='Highly customizable Wayland bar for Sway and Wlroots based compositors (GIT)'
 arch=('x86_64')
@@ -63,11 +63,11 @@ pkgver() {
 
 prepare() {
     cd "${srcdir}/${pkgname}"
+    patch -Np1 -i ../wlr-taskbar-fix.patch
 }
 
 build() {
     cd "${srcdir}/${pkgname}"
-    git apply ../wlr-taskbar-fix.patch
     rm -rf "${srcdir}/build"
     meson --prefix=/usr \
           --buildtype=plain \
