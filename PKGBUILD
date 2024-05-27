@@ -40,6 +40,7 @@ makedepends=(
     'meson'
     'scdoc' # For generating manpages
     'wayland-protocols'
+    'python-setuptools'
 )
 backup=(
     etc/xdg/waybar/config
