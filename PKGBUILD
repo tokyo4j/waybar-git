@@ -41,6 +41,7 @@ makedepends=(
     'scdoc' # For generating manpages
     'wayland-protocols'
     'python-setuptools'
+    'glib2-devel'
 )
 backup=(
     etc/xdg/waybar/config

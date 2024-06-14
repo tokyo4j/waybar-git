@@ -12,6 +12,7 @@ pkgbase = waybar-git
 	makedepends = scdoc
 	makedepends = wayland-protocols
 	makedepends = python-setuptools
+	makedepends = glib2-devel
 	depends = gtkmm3
 	depends = libjsoncpp.so
 	depends = libsigc++
