@@ -1,7 +1,7 @@
 # Maintainer: Alexis Rouillard <contact@arouillard.fr>
 
 ## options
-: ${_use_sodeps:=true}
+: ${_use_sodeps:=false}
 
 _pkgname="waybar"
 pkgname="$_pkgname-git"
